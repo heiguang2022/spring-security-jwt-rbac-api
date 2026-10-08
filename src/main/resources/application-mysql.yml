@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/security_demo?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC}
+    username: ${DB_USERNAME:security_user}
+    password: ${DB_PASSWORD:security_password}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false

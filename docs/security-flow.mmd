@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant Client
+    participant API
+    participant Security
+    participant Database
+    Client->>API: POST /api/auth/login
+    API->>Security: Verify BCrypt password
+    Security->>Database: Load user and role
+    API-->>Client: Access JWT + refresh token
+    Client->>API: Bearer JWT
+    API->>Security: Verify signature, expiry, role
+    Security-->>API: Authenticated principal
+    API-->>Client: Protected resource or 403
